@@ -1,0 +1,14 @@
+docker pull postgres:latest
+
+docker run --name webster-db -e POSTGRES_USER=tolibjon -e POSTGRES_PASSWORD=0804 -d -p 5432:5432 postgres:latest
+
+docker ps
+
+docker exec -it webster-db psql -U webster-db
+
+python -m venv venv
+venv\Scripts\activate
+
+pip install flask pg8000
+
+python app.py
